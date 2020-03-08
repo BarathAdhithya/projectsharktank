@@ -1,4 +1,3 @@
-//mongoosejs.com/docs/queries.html
 const express = require("express");
 require("./db/connection");
 const searchCompanyRouter = require("./router/search-company")

@@ -59,12 +59,12 @@ router.get("/mainsearch/", async (req, res) => {
       res.status(500).send(error);
     }
   } else {
-    res.status(404).send("seasonNo, episodeNo, deal are required");
+    res.status(404).send("send url in proer format");
   }
 });
 
 router.get("/companyDetails/", async (req, res) => {
-  const company_id = req.query.companyid
+  const company_id = req.query.companyid;
   if (true) {
     try {
       let sql = `select company_id,company_name,amount,equity,valuation,sharks_count,amount_per_shark,deal,season_id,episode_id from company_stocks\
@@ -72,12 +72,10 @@ router.get("/companyDetails/", async (req, res) => {
       inner join entrepreneur_gender on company.entrepreneur_gender_id = entrepreneur_gender.id\
       WHERE company_stocks.company_id=?`;
       let result = {};
-      connection.query(sql,company_id, (error, results, fields) => {
+      connection.query(sql, company_id, (error, results, fields) => {
         if (error) {
           return console.error(error.message);
         }
-        // result = results[0];
-        // console.log(result);
         console.log("results :", results);
         res.status(201).send(results);
       });
@@ -87,7 +85,7 @@ router.get("/companyDetails/", async (req, res) => {
       res.status(500).send(error);
     }
   } else {
-    res.status(404).send("seasonNo, episodeNo, deal are required");
+    res.status(404).send("send url in proper format");
   }
 });
 
@@ -100,8 +98,6 @@ router.get("/seasonlist/", async (req, res) => {
         if (error) {
           return console.error(error.message);
         }
-        // result = results[0];
-        // console.log(result);
         console.log("results :", results);
         res.status(201).send(results);
       });
@@ -111,7 +107,7 @@ router.get("/seasonlist/", async (req, res) => {
       res.status(500).send(error);
     }
   } else {
-    res.status(404).send("seasonNo, episodeNo, deal are required");
+    res.status(404).send("send url in proper format");
   }
 });
 
@@ -135,7 +131,7 @@ router.get("/genderlist/", async (req, res) => {
       res.status(500).send(error);
     }
   } else {
-    res.status(404).send("seasonNo, episodeNo, deal are required");
+    res.status(404).send("send url in proper format");
   }
 });
 
@@ -159,7 +155,7 @@ router.get("/genderlist/", async (req, res) => {
       res.status(500).send(error);
     }
   } else {
-    res.status(404).send("seasonNo, episodeNo, deal are required");
+    res.status(404).send("send url in proper format");
   }
 });
 
@@ -182,7 +178,7 @@ router.get("/episodelist/", async (req, res) => {
       res.status(500).send(error);
     }
   } else {
-    res.status(404).send("seasonNo, episodeNo, deal are required");
+    res.status(404).send("send url in proper format");
   }
 });
 
@@ -204,7 +200,7 @@ router.get("/investorlist", async (req, res) => {
       res.status(500).send(error);
     }
   } else {
-    res.status(404).send("seasonNo, episodeNo, deal are required");
+    res.status(404).send("send url in proper format");
   }
 });
 
